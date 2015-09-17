@@ -74,7 +74,7 @@ int inserir(char modelo, int ano, int posicao, Lista *lista){
 		aux=lista->prim ;
 		lista->prim = tmp;
 		tmp->prox = aux;
-			if(lista->qtd)
+			if(lista->qtd==0)
 				lista->ult = tmp;
 				lista->qtd++;
 				
@@ -92,13 +92,13 @@ int inserir(char modelo, int ano, int posicao, Lista *lista){
 }
 void imprimeLista (Lista lista){
   PtrNo p;
-  int qtd = 1;
+  //int qtd = 1;
   p=lista.prim;
   while (p!=NULL){
-  	  printf("\n Quantidade: %d", lista.qtd );
+  	  //printf("\n Quantidade: %d", lista.qtd );
       printf("\n Modelo: %d", p->modelo );
-      printf("\n Modelo: %d ", p->ano );
-      qtd++;
+      printf("\n Ano: %d \n", p->ano );
+      //qtd++;
 	  p=p->prox;
       
   }
@@ -116,20 +116,20 @@ void imprimeLista (Lista lista){
 		//modelo="fiat";
 		ano = 1990;
 		inserir(modelo,ano,1,&lista);
-		
+		printf("\nlista qtd: %d\n", lista.qtd);
 		
 		//Incluindo Elementos na lista
 		//modelo="fiat";
 		ano = 2010;
-		inserir(modelo,ano,1,&lista);
-		
+		inserir(modelo,ano,2,&lista);
+		printf("\nlista qtd: %d\n", lista.qtd);
 		
 		
 		//Incluindo Elementos na lista
 		//modelo="fiat";
 		ano = 2015;
-		inserir(modelo,ano,1,&lista);
-	
+		inserir(modelo,ano,3,&lista);
+		printf("\nlista qtd: %d\n", lista.qtd);
 		
 		printf("\n imprimindo lista: \n");
 		imprimeLista(lista);
